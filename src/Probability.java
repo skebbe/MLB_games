@@ -3,7 +3,7 @@ public class Probability {
     String team_name;
     String percent;
 
-    public Probability(String team_name, String percent) {
+    public Probability() {
         this.team_name = team_name;
         this.percent = percent;
     }
@@ -26,7 +26,7 @@ public class Probability {
 
     @Override
     public String toString() {
-        return "Todnäk{" +
+        return "Prob{" +
                 "team_name='" + team_name + '\'' +
                 ", percent='" + percent + '\'' +
                 '}';

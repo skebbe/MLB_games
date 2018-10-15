@@ -1,33 +1,28 @@
 
 import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 
-import java.util.Arrays;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 public class JSON_lister {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        String probabilityJsonToGson = "{\n" +
-                " \"probabilities\": [\n" +
-                "  {\n" +
-                "   \"team_name\": \"TEAM\",\n" +
-                "   \"percent\": \"WIN %\"\n" +
-                "  },\n" +
-                "  {\n" +
-                "   \"team_name\": \"Colorado Rockies\",\n" +
-                "   \"percent\": \"54%\"\n" +
-                "  },\n" +
-                "  {\n" +
-                "   \"team_name\": \"Chicago Cubs\",\n" +
-                "   \"percent\": \"46%\"\n" +
-                "  }\n" +
-                " ]\n" +
-                "}";
+        Probabilities probabilitiesJSON = new Probabilities();
 
         Gson gson = new Gson();
-        Yla olio = gson.fromJson(probabilityJsonToGson,Yla.class);
-        System.out.println(olio.toString());
+        JsonReader reader = new JsonReader(new FileReader("D:\\lataukset\\Crawling\\MLB\\probabilities_15.10.json"));
+
+        probabilitiesJSON = gson.fromJson(reader, Probabilities.class);
+        System.out.println(probabilitiesJSON.toString());
+
+        Probability[] probabilities = probabilitiesJSON.getProbabilities();
+
+        for (Probability probability : probabilities) {
+        }
 
     }
 }
