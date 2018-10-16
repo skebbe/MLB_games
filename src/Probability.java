@@ -27,7 +27,7 @@ public class Probability {
     @Override
     public String toString() {
         return "Prob{" +
-                "team_name='" + team_name + '\'' +
+                "name='" + team_name + '\'' +
                 ", percent='" + percent + '\'' +
                 '}';
     }

@@ -4,8 +4,6 @@ import com.google.gson.stream.JsonReader;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
 
 public class JSON_lister {
 
@@ -14,15 +12,11 @@ public class JSON_lister {
         Probabilities probabilitiesJSON = new Probabilities();
 
         Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader("D:\\lataukset\\Crawling\\MLB\\probabilities_15.10.json"));
+        JsonReader probsReader = new JsonReader(new FileReader("C:\\Users\\teemu\\Downloads\\Scrapes\\MLB\\probabilities_16.10.json"));
 
-        probabilitiesJSON = gson.fromJson(reader, Probabilities.class);
+        probabilitiesJSON = gson.fromJson(probsReader, Probabilities.class);
         System.out.println(probabilitiesJSON.toString());
-
-        Probability[] probabilities = probabilitiesJSON.getProbabilities();
-
-        for (Probability probability : probabilities) {
-        }
+        
 
     }
 }
